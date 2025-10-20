@@ -2,10 +2,14 @@ from django.db import models
 
 class Staff(models.Model):
     name = models.CharField(max_length=120)
-    role = models.CharField(max_length=120)  # آرایشگر، ناخن‌کار، کلرینگ…
-    bio  = models.TextField(blank=True)
-    photo = models.ImageField(upload_to='staff/', blank=True, null=True)
-    skills = models.JSONField(default=list, blank=True)  # ["شینیون","کاشت","رنگ","کوتاهی"]
+    bio = models.TextField(blank=True)
+    avatar = models.ImageField(upload_to="staff/", blank=True, null=True)
     is_active = models.BooleanField(default=True)
+    # مهارت‌ها: به چه سرویس‌هایی می‌تونه خدمت بده
+    services = models.ManyToManyField("services.Service", related_name="staff_members", blank=True)
 
-    def __str__(self): return self.name
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name
