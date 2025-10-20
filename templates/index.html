@@ -1,4 +1,8 @@
+
+
 <!doctype html>
+{% load static %}
+
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -9,19 +13,16 @@
 
         <title>Gentlemen's Barber Shop - HTML CSS Template</title>
 
-        <!-- CSS FILES -->        
+        <!-- CSS FILES -->
+        {% load static %}
         <link rel="preconnect" href="https://fonts.googleapis.com">
-        
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
         <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500&display=swap" rel="stylesheet">
 
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+        <link href="{% static 'css/templatemo-barber-shop.css' %}" rel="stylesheet">
 
-        <link href="css/bootstrap-icons.css" rel="stylesheet">
-
-        <link href="css/templatemo-barber-shop.css" rel="stylesheet">
-<!--
 
 TemplateMo 585 Barber Shop
 
@@ -499,10 +500,11 @@ https://templatemo.com/tm-585-barber-shop
             </div>
 
         <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/click-scroll.js"></script>
-        <script src="js/custom.js"></script>
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/click-scroll.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
+
 
     </body>
 </html>

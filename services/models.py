@@ -1,3 +1,5 @@
+from django.db import models
+
 class Service(models.Model):
     name = models.CharField(max_length=120)      # شینیون، کاشت ناخن، رنگ، کوتاهی...
     duration_min = models.PositiveIntegerField() # مدت زمان سرویس
