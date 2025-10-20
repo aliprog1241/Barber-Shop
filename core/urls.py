@@ -1,16 +1,18 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    # صفحه اصلی (همون index.html)
     path('', TemplateView.as_view(template_name="index.html"), name='home'),
 
-    # API های ما
     path('api/services/', include('services.urls')),
     path('api/staff/', include('staff.urls')),
     path('api/booking/', include('booking.urls')),
 ]
 
+# برای سرو تصاویر آواتار در حالت توسعه
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
