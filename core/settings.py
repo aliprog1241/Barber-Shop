@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import os
 
 from django.conf.global_settings import STATICFILES_DIRS
 
@@ -60,18 +59,18 @@ ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # مسیر تمپلیت‌های پروژه (جایی که index.html میاد)
-        'DIRS': [BASE_DIR / 'templates'],
+        'BACKEND':'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],  # مهم: پوشه templates
         'APP_DIRS': True,
         'OPTIONS': {'context_processors':[
             'django.template.context_processors.debug',
             'django.template.context_processors.request',
             'django.contrib.auth.context_processors.auth',
             'django.contrib.messages.context_processors.messages',
-        ]},
+        ],},
     },
 ]
+
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
@@ -118,8 +117,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+
+# Static
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']  # جایی که css/js/images قالب را گذاشتی
+
+# Media (برای ImageField)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

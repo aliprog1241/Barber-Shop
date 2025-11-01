@@ -1,8 +1,7 @@
-from django.http import JsonResponse
+# views.py
+from django.shortcuts import render
 from .models import Service
 
 def service_list(request):
-    qs = Service.objects.filter(is_active=True).values(
-        "id", "title", "duration_minutes", "price"
-    )
-    return JsonResponse(list(qs), safe=False)
+    services = Service.objects.filter(is_active=True)
+    return render(request, 'index.html', {'services': services})

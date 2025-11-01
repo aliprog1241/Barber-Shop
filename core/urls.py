@@ -1,13 +1,11 @@
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('accounts.urls')),
-
     path('api/services/', include('services.urls')),
     path('api/staff/', include('staff.urls')),
     path('api/booking/', include('booking.urls')),
